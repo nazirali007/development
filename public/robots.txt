@@ -1,0 +1,21 @@
+# *
+User-agent: *
+Allow: /
+
+# *
+User-agent: *
+Disallow: /api/
+Disallow: /admin/
+Disallow: /admin/
+Disallow: /search/
+Disallow: /trip/hampta-pass/
+Disallow: /book/
+Disallow: /bookings/
+Disallow: /internal
+Disallow: /cgi-bin/
+
+# Host
+Host: https://www.captureatrip.com
+
+# Sitemaps
+Sitemap: https://www.captureatrip.com/sitemap.xml

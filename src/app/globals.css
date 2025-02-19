@@ -1,0 +1,612 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	.font-outline {
+		-webkit-text-stroke: 1px white;
+	}
+	.font-outline-2 {
+		-webkit-text-stroke: 2px black;
+	}
+
+	.font-outline-4 {
+		-webkit-text-stroke: 4px black;
+	}
+
+	:root {
+		--background: #ffffff;
+		--text: #212529;
+		--foreground: 224 71.4% 4.1%;
+
+		--card: 0 0% 100%;
+		--card-foreground: 224 71.4% 4.1%;
+
+		--popover: 0 0% 100%;
+		--popover-foreground: 224 71.4% 4.1%;
+
+		--primary: 196, 56%, 42%;
+		/* #2f86a6 */
+		--primary-foreground: 210, 17%, 98%;
+		/* #f8f9fa */
+
+		--secondary: 54, 99%, 52% /* #fee60b */;
+		--secondary-foreground: 210 20% 98%;
+		/* #f8f9fa */
+
+		--muted: 220 14.3% 95.9%;
+		--muted-foreground: 220 8.9% 46.1%;
+
+		--accent: 220 14.3% 95.9%;
+		--accent-foreground: 220.9 39.3% 11%;
+
+		--destructive: 0 84.2% 60.2%;
+		--destructive-foreground: 210 20% 98%;
+
+		--border: 220 13% 91%;
+		--input: 220 13% 91%;
+		--ring: 224 71.4% 4.1%;
+
+		--radius: 0.5rem;
+	}
+
+	.dark {
+		--background: 224 71.4% 4.1%;
+		--foreground: 210 20% 98%;
+
+		--card: 224 71.4% 4.1%;
+		--card-foreground: 210 20% 98%;
+
+		--popover: 224 71.4% 4.1%;
+		--popover-foreground: 210 20% 98%;
+
+		--primary: 210 20% 98%;
+		--primary-foreground: 220.9 39.3% 11%;
+
+		--secondary: 215 27.9% 16.9%;
+		--secondary-foreground: 210 20% 98%;
+
+		--muted: 215 27.9% 16.9%;
+		--muted-foreground: 217.9 10.6% 64.9%;
+
+		--accent: 215 27.9% 16.9%;
+		--accent-foreground: 210 20% 98%;
+
+		--destructive: 0 62.8% 30.6%;
+		--destructive-foreground: 210 20% 98%;
+
+		--border: 215 27.9% 16.9%;
+		--input: 215 27.9% 16.9%;
+		--ring: 216 12.2% 83.9%;
+	}
+}
+
+@layer base {
+	* {
+		@apply border-border;
+	}
+
+	body {
+		@apply bg-background text-foreground;
+	}
+}
+
+@layer utilities {
+	/* Hide scrollbar for Chrome, Safari and Opera */
+	.no-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
+
+	/* Hide scrollbar for IE, Edge and Firefox */
+	.no-scrollbar {
+		-ms-overflow-style: none;
+		/* IE and Edge */
+		scrollbar-width: none;
+		/* Firefox */
+	}
+
+	.small-prose-size {
+		@apply prose-sm prose-p:my-0 prose-p:py-0 prose-p:text-sm prose-ol:my-0 prose-ol:py-0 prose-ul:my-0 prose-ul:py-0;
+	}
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+.category-description h3 {
+	font-size: 24px;
+	font-weight: 700;
+}
+
+.category-description h4 {
+	font-size: 20px;
+	font-weight: 700;
+	margin-bottom: -20px;
+}
+
+.trip-itinery {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	font-size: 16px;
+	font-weight: 700;
+}
+
+.trip-itinery ul {
+	display: flex;
+	flex-direction: column;
+	font-size: 14px;
+	font-weight: 400;
+	padding-left: 40px;
+	list-style: disc;
+}
+
+.trip-note ul {
+	display: flex;
+	flex-direction: column;
+	font-size: 14px;
+	font-weight: 700;
+	list-style: disc;
+	padding-left: 16px;
+}
+
+.trip-content {
+	font-size: 14px;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.trip-content ul,
+ol {
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+	list-style: disc;
+	padding-left: 40px;
+}
+
+.blog {
+	@apply flex flex-col gap-1 text-gray-600;
+}
+
+.blog ul {
+	@apply flex list-disc flex-col gap-2 pl-4;
+}
+
+.blog ol {
+	@apply flex !list-decimal flex-col gap-2 pl-4;
+}
+
+.blog ul,
+ol li::marker {
+	color: #212529;
+}
+
+.blog > h1,
+.blog > h2,
+.blog > h3,
+.blog > h4,
+.blog > h5,
+.blog > h6 {
+	@apply m-0 p-0 font-bold text-black;
+}
+
+.blog > h3 {
+	@apply !m-0 !p-0;
+}
+
+.blog h1 {
+	font-size: 150%;
+}
+
+.blog h2 {
+	font-size: 140%;
+	margin-top: 1.5rem;
+	margin-bottom: 0rem;
+	padding-top: 0rem;
+	padding-bottom: 0rem;
+}
+
+.blog h3 {
+	font-size: 130%;
+	margin-top: 1rem;
+	margin-bottom: 0rem;
+	padding-top: 0rem;
+	padding-bottom: 0rem;
+}
+
+.blog h4 {
+	font-size: 120%;
+}
+
+.blog h5 {
+	font-size: 110%;
+}
+
+.blog li {
+	@apply m-0 p-0;
+}
+
+.blog p {
+	@apply m-0 p-0 leading-[1.3] tracking-[0] md:leading-normal md:tracking-normal;
+}
+
+.blog ul,
+ol li p {
+	@apply m-0 p-0;
+}
+
+.article {
+	@apply flex flex-col gap-2 !font-normal !text-black !opacity-100;
+}
+
+.article a {
+	@apply text-blue-600;
+}
+
+.article a > span {
+	@apply !text-blue-600;
+}
+
+.article p {
+	@apply text-justify !text-black;
+	margin-bottom: 15px;
+}
+
+.article ul {
+	@apply flex list-disc flex-col gap-2 pl-4 !text-black;
+}
+
+.article ol {
+	@apply flex !list-decimal flex-col gap-2 pl-6 !text-black;
+}
+
+.article ul > li {
+	@apply m-0 p-0 !text-black;
+}
+
+.article ol > li {
+	@apply m-0 p-0 !text-black;
+}
+
+li::marker {
+	color: #000000 !important;
+}
+
+.article > h1,
+.article > h2,
+.article > h3,
+.article > h4,
+.article > h5,
+.article > h6 {
+	@apply mt-2 font-bold !text-black;
+}
+
+.article h1 {
+	font-size: 150%;
+	color: #000000 !important;
+}
+
+.article h2 {
+	font-size: 140%;
+	color: #000000 !important;
+}
+
+.article h3 {
+	font-size: 130%;
+	color: #000000 !important;
+}
+
+.article h4 {
+	font-size: 120%;
+	color: #000000 !important;
+}
+
+.article h5 {
+	font-size: 110%;
+	color: #000000 !important;
+}
+
+.itinerary {
+	@apply flex flex-col gap-2 !font-medium leading-tight !text-black !opacity-100 sm:gap-1 md:gap-2 md:leading-normal;
+}
+
+.itinerary a {
+	@apply text-blue-600;
+}
+
+.itinerary p {
+	@apply !m-0 !mt-0 pt-0 text-justify text-sm leading-tight tracking-tight !text-gray-700 md:text-base;
+}
+
+.itinerary p strong {
+	@apply text-base !text-black;
+}
+
+.itinerary ul {
+	@apply flex list-disc flex-col gap-0 pl-4 !text-black sm:gap-1 md:gap-2;
+}
+
+.itinerary ul li p {
+	@apply !m-0 !p-0 !text-gray-950;
+}
+
+.itinerary ol {
+	@apply flex !list-decimal flex-col gap-0.5 pl-4 !text-black sm:gap-1 md:gap-2;
+}
+
+li::marker {
+	color: #000000 !important;
+}
+
+.itinerary > h1,
+.itinerary > h2,
+.itinerary > h3,
+.itinerary > h4,
+.itinerary > h5,
+.itinerary > h6 {
+	@apply mt-2 font-bold !text-black;
+}
+
+.itinerary h1 {
+	font-size: 150%;
+	color: #000000 !important;
+}
+
+.itinerary h2 {
+	font-size: 140%;
+	color: #000000 !important;
+}
+
+.itinerary h3 {
+	font-size: 130%;
+	color: #000000 !important;
+}
+
+.itinerary h4 {
+	font-size: 120%;
+	color: #000000 !important;
+}
+
+.itinerary h5 {
+	font-size: 110%;
+	color: #000000 !important;
+}
+
+.itinerary > p {
+	@apply mt-3;
+}
+
+.itinerary p > strong {
+	@apply text-black;
+}
+
+.itinerary li {
+	@apply m-0 p-0 leading-tight !text-black md:leading-normal;
+}
+
+.itinerary li > p {
+	@apply m-0 p-0 text-sm !text-gray-950 md:text-base;
+}
+
+@media (max-width: 768px) {
+	.trip-itinery ul {
+		padding-left: 24px;
+	}
+
+	.trip-content ul {
+		padding-left: 24px;
+	}
+}
+
+.without-ring {
+	@apply outline-none focus:ring-0 focus:ring-offset-0;
+}
+
+.without-ring:focus {
+	@apply focus:outline-none focus:ring-0 focus:ring-offset-0;
+}
+
+.gold-shine-effect {
+	--shine-deg: 45deg;
+	position: relative;
+	overflow: hidden;
+	background-repeat: no-repeat;
+	background-position:
+		-100% 0,
+		0 0;
+	background-image: linear-gradient(
+		var(--shine-deg),
+		transparent 20%,
+		transparent 40%,
+		white 50%,
+		transparent 60%,
+		transparent 70%,
+		transparent 100%
+	);
+	background-size:
+		250% 250%,
+		100% 100%;
+	animation: goldShineEffectAnimation 3s linear infinite;
+}
+
+.topEmployeeName {
+	position: absolute;
+	left: 50%;
+	display: block;
+	margin: -20px -200px;
+	width: 400px;
+	height: 60px;
+	border: 1px solid #005580;
+	text-align: center;
+	background: #007dbc;
+	border-radius: 4px;
+	box-shadow:
+		0 0 30px rgba(0, 0, 0, 0.15) inset,
+		0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.topEmployeeName::before,
+.topEmployeeName::after {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	left: -30px;
+	top: 24px;
+	display: block;
+	width: 40px;
+	height: 0px;
+	border: 30px solid #007dbc;
+	border-right: 20px solid #005580;
+	border-bottom-color: #007dbc;
+	border-left-color: transparent;
+	transform: rotate(-5deg);
+}
+
+.topEmployeeName::after {
+	left: auto;
+	right: -30px;
+	border-left: 20px solid #005580;
+	border-right: 30px solid transparent;
+	transform: rotate(5deg);
+}
+
+@keyframes shine {
+	to {
+		background-position: 200% center;
+	}
+}
+
+.linear-wipe {
+	background: linear-gradient(to right, #fff 20%, #ff0 40%, #ff0 60%, #fff 80%);
+	background-size: 200% auto;
+	color: transparent;
+	background-clip: text;
+	font-weight: bold;
+	-webkit-background-clip: text;
+	animation: shine 1s linear infinite;
+}
+
+@keyframes goldShineEffectAnimation {
+	0% {
+		background-position:
+			-100% 0,
+			0 0;
+	}
+
+	100% {
+		background-position:
+			200% 0,
+			0 0;
+	}
+}
+
+/* [data-tip] {
+		position: relative;
+	}
+
+	[data-tip]:before {
+		display: none;  
+		border-left: 5px solid transparent;
+		border-right: 5px solid transparent;
+		border-bottom: 5px solid #1a1a1a;
+		position: absolute;
+		top: 30px;
+		left: 35px;
+		z-index: 8;
+	}
+
+	[data-tip]:after {
+		display: none;
+		content: attr(data-tip);
+		position: absolute;
+		top: 35px;
+		left: 0px;
+		padding: 5px 8px;
+		background: red;
+		color: black;
+		z-index: 9;
+		font-size: 0.75em;
+		height: 18px;
+		font-weight:bold;
+		line-height: 18px;
+		border-radius: 6px;
+		white-space: nowrap;
+	}
+
+
+	[data-tip]:hover:before{
+		display: none;
+	}
+	[data-tip]:hover:after {
+		display: block;
+	}  */
+
+/* Show the tooltip when the 'show-tooltip' class is present */
+
+[data-tip] {
+	position: relative;
+}
+[data-tip]:before {
+	content: "";
+	/* hides the tooltip when not hovered */
+	display: none;
+	content: "";
+	display: none;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 5px solid rgb(255, 105, 97);
+	position: absolute;
+	top: 37px;
+	left: 35px;
+	z-index: 8;
+	font-size: 0;
+	line-height: 0;
+	width: 0;
+	height: 0;
+	position: absolute;
+	top: 37px;
+	left: 35px;
+	z-index: 8;
+	font-size: 0;
+	line-height: 0;
+	width: 0;
+	height: 0;
+}
+[data-tip]:after {
+	display: none;
+	content: attr(data-tip);
+	position: absolute;
+	top: 41px;
+	left: 0px;
+	text-align: center;
+	padding: 6px 8px;
+	background: rgb(255, 105, 97);
+	color: white;
+	z-index: 9;
+	font-size: 0.85em;
+	font-weight: bold;
+	height: 28px;
+	line-height: 10px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	border: 2px solid rgb(255, 105, 97);
+	white-space: nowrap;
+	word-wrap: normal;
+	opacity: 0.9;
+}
+/* [data-tip]:hover:before,
+	[data-tip]:hover:after {
+		display:block;
+	} */
+.show-tooltip[data-tip]:before,
+.show-tooltip[data-tip]:after {
+	display: block;
+}
+
+.dmsans {
+	font-family: var(--font-dm-sans);
+}

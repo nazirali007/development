@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Contact Information</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+				font-size: 16px;
+			}
+			body {
+				width: 100%;
+				max-width: 600px;
+				margin: auto;
+				display: flex;
+				flex-direction: column;
+				gap: 20px;
+			}
+			h2 {
+				margin-top: 10px;
+				text-align: center;
+				font-size: 40px;
+				color: black;
+			}
+			table {
+				width: 100%;
+				border: solid 3px #c0c0c0;
+			}
+			th,
+			td {
+				padding: 2px;
+				min-height: 22px;
+				text-align: left;
+				border-bottom: 1px solid #ddd;
+			}
+			th {
+				background-color: #f2f2f2;
+			}
+			p {
+				text-align: center;
+				color: black;
+				font-size: 14px;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>Contact Information</h2>
+		<table id="contactTable">
+			<tr>
+				<th>Name:</th>
+				<td>{name}</td>
+			</tr>
+			<tr>
+				<th>Email:</th>
+				<td>{email}</td>
+			</tr>
+			<tr>
+				<th>Phone:</th>
+				<td>{phone}</td>
+			</tr>
+			<tr>
+				<th>Where To Go:</th>
+				<td>{tripName}</td>
+			</tr>
+			<tr>
+				<th>Trip Date</th>
+				<td>{tripDate}</td>
+			</tr>
+			<tr>
+				<th>Duration</th>
+				<td>{tripDuration}</td>
+			</tr>
+			<tr>
+				<th>Number of People:</th>
+				<td>{memberCounts}</td>
+			</tr>
+			<tr>
+				<th>Trip Page:</th>
+				<td>{slug}</td>
+			</tr>
+		</table>
+	</body>
+</html>

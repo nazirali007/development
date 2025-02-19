@@ -1,0 +1,143 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["multiSchema"]
+  binaryTargets   = ["native", "rhel-openssl-1.0.x"]
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+  schemas   = ["responses"]
+}
+
+model User {
+  id          String    @id @default(uuid()) @map("id")
+  name        String?
+  email       String    @unique
+  phone       String?   @default("")
+  gender      Gender    @default(MALE)
+  address     String?   @default("")
+  dateofbirth String?   @default("")
+  about       String?   @default("")
+  instagramId String?   @default("")
+  avatar      String?
+  isAdmin     Boolean   @default(false)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  bookings    Booking[]
+
+  @@schema("responses")
+}
+
+model Booking {
+  id            String          @id @default(uuid()) @map("id")
+  orderId       String
+  tripName      String
+  tripDuration  String
+  tripDate      DateTime
+  totalAmount   Int
+  paidAmount    Int
+  dueAmount     Int
+  gstAmount     Int
+  tcsAmount     Int
+  paymentMethod String?
+  status        String          @default("Pending")
+  tripslug      String?
+  userId        String?
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+  User          User?           @relation(fields: [userId], references: [id])
+  members       BookingMember[]
+
+  @@schema("responses")
+}
+
+model BookingMember {
+  id             String   @id @default(uuid()) @map("id")
+  memberCount    Int
+  travelModeName String
+  bookingId      String?
+  Booking        Booking? @relation(fields: [bookingId], references: [id])
+
+  @@schema("responses")
+}
+
+model Bookingquery {
+  id           String                @id @default(uuid()) @map("id")
+  name         String
+  phone        String
+  email        String
+  read         Boolean               @default(false)
+  tripName     String
+  tripDuration String
+  tripDate     DateTime
+  createdAt    DateTime              @default(now())
+  members      BookingQueryMembers[]
+
+  @@schema("responses")
+}
+
+model BookingQueryMembers {
+  id             String        @id @default(uuid()) @map("id")
+  memberCount    Int
+  travelModeName String
+  bookingqueryId String?
+  Bookingquery   Bookingquery? @relation(fields: [bookingqueryId], references: [id])
+
+  @@schema("responses")
+}
+
+model CustomizedTripInquiry {
+  id              String   @id @default(uuid()) @map("id")
+  fullname        String
+  phone           String
+  email           String
+  tripMode        String
+  tripMonth       String
+  tripType        String
+  tripDestination String
+  read            Boolean  @default(false)
+  createdAt       DateTime @default(now())
+
+  @@schema("responses")
+}
+
+model Inquiry {
+  id          String   @id @default(uuid()) @map("id")
+  name        String
+  phone       String
+  email       String
+  destination String
+  read        Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  @@schema("responses")
+}
+
+model CampaignResponses {
+  id              String   @id @default(uuid()) @map("id")
+  name            String
+  phone           String
+  email           String
+  destination     String
+  destinationslug String
+  noOfPeople      Int      @default(1)
+  createdAt       DateTime @default(now())
+  message         String?
+  utm             String?
+  utm_campaign    String?
+  utm_content     String?
+  utm_medium      String?
+  utm_term        String?
+
+  @@schema("responses")
+}
+
+enum Gender {
+  MALE
+  FEMALE
+  OTHERS
+
+  @@schema("responses")
+}
